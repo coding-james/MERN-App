@@ -5,9 +5,9 @@ import { Nav, Navbar, Container, Row, Col } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Components
-import AllCaves from './Components/AllCaves';
-import CreateCave from './Components/CreateCave';
-import UpdateCave from './Components/UpdateCave'
+import AllCaves from './components/AllCaves';
+import CreateCave from './components/CreateCave';
+import UpdateCave from './components/UpdateCave'
 
 function App() {
   return (

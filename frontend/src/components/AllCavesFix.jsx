@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {Table} from "react-bootstrap";
-// import CaveDetail from "./CaveDetail";
 import CaveDetail from "./CaveDetailFix";
 
 
@@ -20,8 +19,16 @@ const AllCaves = () => {
     }, []);
 
     const DataTable = () => {
-        return caves.map((res, i) => {
-            return <CaveDetail obj={res} key={i} />;
+        return caves.map((caves, i) => {
+            return <CaveDetail
+            key={caves._id}
+            cave={caves.cave}
+            region={caves.region}
+            gridRef={caves.gridRef}
+            water={caves.water}
+            equipment={caves.equipment}
+            id={caves._id}
+            />;
         });
     };
 

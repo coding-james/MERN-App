@@ -5,9 +5,13 @@ import { Nav, Navbar, Container, Row, Col } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Components
-import AllCaves from './components/AllCaves';
+import Home from './components/Home';
+// import AllCaves from './components/AllCaves';
+import AllCaves from './components/AllCavesFix';
 import CreateCave from './components/CreateCave';
-import UpdateCave from './components/UpdateCave'
+import UpdateCave from './components/UpdateCave';
+import EditCave from './components/EditCave';
+
 
 function App() {
   return (
@@ -21,6 +25,9 @@ function App() {
               </Navbar.Brand>
 
               <Nav>
+                <Nav.Item>
+                  <Link to="/" className="nav-link">Home</Link>
+                </Nav.Item>
                 <Nav.Item>
                   <Link to="/createCave" className="nav-link">Add a Cave</Link>
                 </Nav.Item>
@@ -38,9 +45,11 @@ function App() {
             <Col md={12}>
               <div className="wrapper">
                 <Routes>
+                  <Route path="/" element={<Home />} />
                   <Route path="/createCave" element={<CreateCave />} />
                   <Route path="/updateCave/:id" element={<UpdateCave />} />
                   <Route path="/allCaves" element={<AllCaves />} />
+                  <Route path="/editCave/:id" element={<EditCave />} />
                 </Routes>
               </div>
             </Col>

@@ -36,7 +36,7 @@ router.patch("/updateCaveBody/:id", (req, res) => {
     console.log("ID:", req.params.id);
     console.log("Name:", req.body.name);
     if (!req.params.id) return next({ status: 400, message: "Missing ID" })
-    caveModel.findByIdAndUpdate(req.params.id, { $set: { name: req.body.name } }).then(result => res.status(201).send(result)).catch(err => next(err));
+    caveModel.findByIdAndUpdate(req.params._id, { $set: { name: req.body.name } }).then(result => res.status(201).send(result)).catch(err => next(err));
 });
 
 //Delete

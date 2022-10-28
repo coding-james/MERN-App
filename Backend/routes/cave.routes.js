@@ -23,21 +23,12 @@ router.get("/getCave/:id", (req, res, next) => {
 
 
 // Update
-router.patch("/updateCave/:id", (req, res) => {
+router.put("/updateCave/:id", (req, res) => {
     console.log("ID:", req.params.id);
-    console.log("CaveName:", req.query.caveName);
-    console.log("Water:", req.query.water);
     if (!req.params.id) return next({ status: 400, message: "Missing ID" })
-    caveModel.findByIdAndUpdate(req.params.id, { $set: { water: req.query.water } }).then(result => res.status(201).send(result)).catch(err => next(err)); //replaces water - can it be set up for multiple elements
+    caveModel.findByIdAndUpdate(req.params.id, req.body).then(result => res.status(202).send(result)).catch(err => next(err)); 
 });
 
-// Using the body
-router.patch("/updateCaveBody/:id", (req, res) => {
-    console.log("ID:", req.params.id);
-    console.log("Name:", req.body.name);
-    if (!req.params.id) return next({ status: 400, message: "Missing ID" })
-    caveModel.findByIdAndUpdate(req.params._id, { $set: { name: req.body.name } }).then(result => res.status(201).send(result)).catch(err => next(err));
-});
 
 //Delete
 router.delete("/removeCave/:id", (req, res, next) => {
@@ -46,7 +37,10 @@ router.delete("/removeCave/:id", (req, res, next) => {
     caveModel.findByIdAndDelete(id).then(result => res.send(result)).catch(err => next(err));
 });
 
-
-
+router.delete("/removeCave/:id", async (req, res, next)=> {
+    const id = req.params.id;
+    if(!caveModel.findById(id)) return next({ status:404, message: "There is no cave with this id"});
+    caveModel.findByIdAndDelete(id).then(result => res.send(result)).catch(err => next(err));
+});
 
 module.exports = router;

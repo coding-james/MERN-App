@@ -31,19 +31,34 @@ const CreateCave = ({ getCaves }) => {
     const CaveDetails = async (e) => {
         console.log(cave, region, gridRef, water, equipment);
         e.preventDefault();
-        try {
-            const res = await axios.post("http://localhost:4000/createCave", {
-                cave,
-                region,
-                gridRef,
-                water,
-                equipment
-            });
-            getCaves();
-            console.log("Response:", res);
-        } catch (err) {
+        axios.post("http://localhost:4000/createCave", {
+            cave,
+            region,
+            gridRef,
+            water,
+            equipment
+        })
+            .then((res) => {
+                if (res.status === 201) {
+                    alert("Cave Created");
+                    window.location.replace("/allCaves");
+                } else Promise.reject();
+            })
+            .catch((err) => alert("Unable to create"));
 
-        }
+        // try {
+        //     const res = await axios.post("http://localhost:4000/createCave", {
+        //         cave,
+        //         region,
+        //         gridRef,
+        //         water,
+        //         equipment
+        //     });
+        //     getCaves();
+        //     console.log("Response:", res);
+        // } catch (err) {
+
+        // }
     };
 
 

@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 function EditCave() {
-    
+
     const [id, setId] = useState("");
     const [cave, setCave] = useState("");
     const [region, setRegion] = useState("Mendips");
@@ -18,11 +18,11 @@ function EditCave() {
     const params = useParams();
     console.log("Param:", params);
     const [caveData, setCaveData] = useState({
-        cave:"",
-        region:"",
-        gridRef:"",
-        water:"",
-        equipment:[""],
+        cave: "",
+        region: "",
+        gridRef: "",
+        water: "",
+        equipment: [""],
     });
 
     useEffect(() => {
@@ -41,7 +41,7 @@ function EditCave() {
         console.log(id, cave, region, gridRef, water, equipment);
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:4000/updateCave/" + id, {
+            const res = await axios.post(`http://localhost:4000/updateCave/${params.id}`, {
                 cave,
                 region,
                 gridRef,
@@ -57,7 +57,7 @@ function EditCave() {
 
     //delete record and take to All Caves page
     const deleteCave = () => {
-        axios.delete("http://localhost:4000/removeCave/" + id)
+        axios.delete(`http://localhost:4000/removeCave/${params.id}`)
             .then((res) => {
                 if (res.status === 200) {
                     alert("Cave Deleted");
@@ -120,7 +120,7 @@ function EditCave() {
 
                 </Form.Group>
 
-                <Button variant="success" type="submit">Update</Button><br/><br/>
+                <Button variant="success" type="submit">Update</Button><br /><br />
                 <Button variant="danger" type="button" onClick={deleteCave}>Delete</Button>
             </Form >
         </div >

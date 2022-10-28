@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
 const CaveDetail = (props) => {
-    const { _id, caveName, region, gridRef, wetCave, equipment } = props.obj;
+    const { _id, cave, region, gridRef, wetCave, equipment } = props.obj;
 
     const deleteCave = () => {
         axios.delete("http://localhost:4000/deleteCave" + _id)
@@ -18,7 +18,7 @@ const CaveDetail = (props) => {
 
     return (
         <tr>
-            <td>{caveName}</td>
+            <td>{cave}</td>
             <td>{region}</td>
             <td>{gridRef}</td>
             <td>{wetCave}</td>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+// Working with checkbox
 // https://dev.to/mhmmdysf/handling-multiple-checkboxes-in-react-3efe
 // Look at https://appdividend.com/2022/03/12/how-to-save-multiple-checkboxes-values-in-react/
 // https://www.reddit.com/r/reactjs/comments/mitwvs/how_to_get_selected_values_of_multiple_checkboxes/
@@ -17,37 +18,38 @@ const CreateCave = ({ getCaves }) => {
     const [equipmentList, setEquipmentList] = [{ id: 1, item: 'Ladder', checked: false }, { id: 2, item: 'Rope 20m', checked: false }, { id: 3, item: 'Rope 30m', checked: false }]
     const [equipment, setEquipment] = useState([]);
 
-    this.state = {
-        equipment:
-            [
-                { id: 1, name: 'Ladder', checked: false },
-                { id: 2, name: 'Rope 20m', checked: false },
-                { id: 3, name: 'Rope 30m', checked: false }
-            ],
-        selected: [],
-    }
+    // this.state = {
+    //     equipment:
+    //         [
+    //             { id: 1, name: 'Ladder', checked: false },
+    //             { id: 2, name: 'Rope 20m', checked: false },
+    //             { id: 3, name: 'Rope 30m', checked: false }
+    //         ],
+    //     selected: [],
+    // }
 
-    // const CaveDetails = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const res = await axios.post("http://localhost:1296/createCave", {
-    //             cave,
-    //             region,
-    //             gridRef,
-    //             water,
-    //             equipment
-    //         });
-    //         getCaves();
-    //         console.log("Response:", res);
-    //     } catch (err) {
-
-    //     }
-    // };
-
-    const CaveDetails = (e) => {
-        e.preventDefault();
+    const CaveDetails = async (e) => {
         console.log(cave, region, gridRef, water, equipment);
-    }
+        e.preventDefault();
+        try {
+            const res = await axios.post("http://localhost:4000/createCave", {
+                cave,
+                region,
+                gridRef,
+                water,
+                equipment
+            });
+            getCaves();
+            console.log("Response:", res);
+        } catch (err) {
+
+        }
+    };
+
+    // const CaveDetails = (e) => {
+    //     e.preventDefault();
+    //     console.log(cave, region, gridRef, water, equipment);
+    // }
 
     // const equipCheck = (value) => {
     //     //if value already included the splice out, otherwise add in.
@@ -65,7 +67,7 @@ const CreateCave = ({ getCaves }) => {
                 Add a Cave:
                 <Form.Group className="mb-3">
                     <Form.Label> Cave name: </Form.Label>
-                    <input type="text" className="form-control" id="caveName" onChange={(e) => setCave(e.target.value)} />
+                    <input type="text" className="form-control" id="cave" onChange={(e) => setCave(e.target.value)} />
                 </Form.Group>
 
 
@@ -96,7 +98,7 @@ const CreateCave = ({ getCaves }) => {
                     <Form.Check name="equip2" type="checkbox" id="equip2" label="Rope 20m" value="Rope20m" onChange={(e) => equipCheck(e.target.value)} />
                     <Form.Check name="equip3" type="checkbox" id="equip3" label="Rope 30m" value="Rope30m" onChange={(e) => equipCheck(e.target.value)} /> */}
 
-                    {
+                    {/* {
                         this.state.equipment.map(item => {
                             return (
                                 <Form.Check
@@ -108,7 +110,7 @@ const CreateCave = ({ getCaves }) => {
                                 </Form.Check>
                             )
                         })
-                    }
+                    } */}
 
                 </Form.Group>
 

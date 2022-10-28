@@ -6,7 +6,7 @@ const InputForm = () => {
     return (
         <>
             <Form>
-                <Form.Group className="mb-3" controlId="caveName">
+                <Form.Group className="mb-3" controlId="cave">
                     <Form.Label>Cave Name</Form.Label>
                     <Form.Control type="text" placeholder="Enter cave name" />
                 </Form.Group>

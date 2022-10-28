@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const { caveModel } = require("./cavedb");
+const { caveModel } = require("../cavedb");
 
 router.get('/', (req, res) => res.send("Hello, do you happen to know the way?"));
 
 
 // Create
 router.post("/createCave", (req, res, next) => {
-    if (!req.body.caveName) return next({ status: 400, message: "Missing name" })
+    if (!req.body.cave) return next({ status: 400, message: "Missing cave name" })
     caveModel.create(req.body).then(result => res.status(201).send(result)).catch(err => next(err));
 });
 

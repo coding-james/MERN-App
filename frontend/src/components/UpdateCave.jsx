@@ -4,7 +4,7 @@ import InputForm from "./InputForm";
 
 const UpdateCave = (props) => {
     const [formValues, setFromValues] = useState({
-        caveName:"",
+        cave:"",
         region:"",
         gridRef:"",
         water:"",
@@ -25,8 +25,8 @@ const UpdateCave = (props) => {
     useEffect(() => {
         axios.get("http://localhost:4000/updateCave" + props.match.params.id)
         .then((res) => {
-            const {caveName, region, gridRef, water, equipment} = res.data;
-            setFromValues({caveName, region, gridRef, water, equipment});
+            const {cave, region, gridRef, water, equipment} = res.data;
+            setFromValues({cave, region, gridRef, water, equipment});
         })
         .catch((err) => console.log(err));
     }, []);

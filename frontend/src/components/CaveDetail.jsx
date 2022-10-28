@@ -1,31 +1,17 @@
-import axios from "axios";
 import { Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
-const CaveDetail = (props) => {
-    const { _id, caveName, region, gridRef, wetCave, equipment } = props.obj;
-
-    const deleteCave = () => {
-        axios.delete("http://localhost:4000/deleteCave" + _id)
-            .then((res) => {
-                if (res.status === 200) {
-                    alert("Cave Deleted");
-                    window.location.reload();
-                } else Promise.reject();
-            })
-            .catch((err) => alert("Unable to delete"));
-    };
-
+function CaveDetail({ id, cave, region, gridRef, water, equipment }) {
+    
     return (
         <tr>
-            <td>{caveName}</td>
+            <td>{cave}</td>
             <td>{region}</td>
             <td>{gridRef}</td>
-            <td>{wetCave}</td>
+            <td>{water}</td>
             <td>{equipment}</td>
             <td>
-                <Link className="edit-link" to={"/updateCave/" + _id}>Edit</Link>
-                <Button onClick={deleteCave}>Delete</Button>
+                <Link to={`/editCave/${id}`}><Button>Edit / Delete</Button></Link>
             </td>
         </tr>
     );

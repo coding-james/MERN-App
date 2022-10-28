@@ -1,25 +1,22 @@
 "use strict"
 
 const express = require("express");
-const app = express();
-
-const routes = require("./caveRoutes");
-
 const bodyParser = require("body-parser");
-
+const app = express();
+const cors = require("cors")
 app.use(bodyParser.json());
+app.use(cors());
 
-app.use("/caveRoutes", routes);
-// Example for postman localhost:4000/caveRoutes/allCaves
+const caveRoutes = require("./routes/cave.routes.js");
 
-app.use((err, req, res, next) => {
-    console.log(err.stack);
-    next(err);
-});
+app.use(caveRoutes);
 
 app.use((err, req, res, next) => {
-    res.status(500).send(err.message);
+    console.log(err);
+    res.status(err.status||500).send(err.message|| "Houston we've got a problem");
 });
 
 // app.listen(4000);
 const server = app.listen(4000, () => console.log(`Server successfully started on port, ${server.address().port}`));
+
+module.exports = server

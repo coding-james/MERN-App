@@ -9,7 +9,7 @@ localhost:4000/caveRoutes/createCave
 body JSON:
 {"caveName": "x", "region": 19xx, "gridRef": "x", "water": "wet", "equipment": ["Ladder", "Rope 20m", "Rope 30m"]}
 {"caveName": "Swildons Hole", "region": "Mendips", "gridRef": "ST 531 512", "water": "wet", "equipment": ["Ladder", "Rope 30m"]}
-{"caveName": "Rods Pot", "region": "Mendips", "gridRef": "ST 4721 584", "water": "dry", "equipment": ["Rope 20m"]}
+{"caveName": "Rods Pot", "region": "Mendips", "gridRef": "ST 472 584", "water": "dry", "equipment": ["Rope 20m"]}
 
 {"caveName": "Goatchurch Cavern", "region": "Mendips", "gridRef": "ST 475 582", "water": "dry", "equipment": ["Rope 20m"]}
 
@@ -18,6 +18,3 @@ localhost:4000/caveRoutes/removeCave/[mongodb id number]
 
 Get specified cave
 localhost:4000/caveRoutes/getCave/[mongodb id number]
-
-Update via Query
-localhost:4000/caveRoutes/updateCave/[mongodb id number]?water=dry

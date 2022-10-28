@@ -6,8 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Components
 import Home from './components/Home';
-// import AllCaves from './components/AllCaves';
-import AllCaves from './components/AllCavesFix';
+import AllCaves from './components/AllCaves';
 import CreateCave from './components/CreateCave';
 import UpdateCave from './components/UpdateCave';
 import EditCave from './components/EditCave';

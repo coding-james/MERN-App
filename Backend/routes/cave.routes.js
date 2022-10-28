@@ -23,10 +23,10 @@ router.get("/getCave/:id", (req, res, next) => {
 
 
 // Update
-router.put("/updateCave/:id", (req, res) => {
+router.patch("/updateCave/:id", (req, res) => {
     console.log("ID:", req.params.id);
     if (!req.params.id) return next({ status: 400, message: "Missing ID" })
-    caveModel.findByIdAndUpdate(req.params.id, req.body).then(result => res.status(202).send(result)).catch(err => next(err)); 
+    caveModel.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(result => res.status(202).send(result)).catch(err => next(err)); 
 });
 
 

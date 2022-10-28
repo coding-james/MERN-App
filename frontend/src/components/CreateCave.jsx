@@ -99,17 +99,24 @@ const CreateCave = ({ getCaves }) => {
 
                 <Form.Group className="mb-3">
                     <Form.Label> Water? </Form.Label><br />
-                    <Form.Check inline name="water" type="radio" id="wet" label="Wet Cave" value="wet" onChange={(e) => setWater(e.target.value)} />
-                    <Form.Check inline name="water" type="radio" id="dry" label="Dry Cave" value="dry" onChange={(e) => setWater(e.target.value)} />
+                    {/* JAMES - Would be good to sort fix Radio Button react.tips/radio-buttons-in-react=16 */}
+                    {/* <Form.Check inline name="water" type="radio" id="wet" label="Wet Cave" value="wet" onChange={(e) => setWater(e.target.value)} />
+                    <Form.Check inline name="water" type="radio" id="dry" label="Dry Cave" value="dry" onChange={(e) => setWater(e.target.value)} /> */}
+                    
+                    <Form.Select value={water} onChange={(e) => setWater(e.target.value)}>
+                        <option value="Wet">Wet Cave</option>
+                        <option value="Dry">Dry Cave</option>
+                    </Form.Select>
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                {/* JAMES - Would be good to sort fix CheckBoxes/Array react.tips/checkboxes-in-react=16 */}
+                {/* <Form.Group className="mb-3">
                     <Form.Label> Equipment: </Form.Label>
-                    {/* <Form.Check name="equip1" type="checkbox" id="equip1" label="Ladder" value="Ladder" onChange={(e) => equipCheck(e.target.value)} />
+                    <Form.Check name="equip1" type="checkbox" id="equip1" label="Ladder" value="Ladder" onChange={(e) => equipCheck(e.target.value)} />
                     <Form.Check name="equip2" type="checkbox" id="equip2" label="Rope 20m" value="Rope20m" onChange={(e) => equipCheck(e.target.value)} />
-                    <Form.Check name="equip3" type="checkbox" id="equip3" label="Rope 30m" value="Rope30m" onChange={(e) => equipCheck(e.target.value)} /> */}
+                    <Form.Check name="equip3" type="checkbox" id="equip3" label="Rope 30m" value="Rope30m" onChange={(e) => equipCheck(e.target.value)} />
 
-                    {/* {
+                    {
                         this.state.equipment.map(item => {
                             return (
                                 <Form.Check
@@ -121,9 +128,9 @@ const CreateCave = ({ getCaves }) => {
                                 </Form.Check>
                             )
                         })
-                    } */}
+                    }
 
-                </Form.Group>
+                </Form.Group> */}
 
                 <Button variant="primary" type="submit">Add Cave</Button>
             </Form >

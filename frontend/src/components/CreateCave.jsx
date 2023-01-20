@@ -14,7 +14,7 @@ const CreateCave = ({ getCaves }) => {
     const [cave, setCave] = useState("");
     const [region, setRegion] = useState("Mendips");
     const [gridRef, setGridRef] = useState("");
-    const [water, setWater] = useState("wet");
+    const [water, setWater] = useState("Wet");
     const [equipmentList, setEquipmentList] = [{ id: 1, item: 'Ladder', checked: false }, { id: 2, item: 'Rope 20m', checked: false }, { id: 3, item: 'Rope 30m', checked: false }]
     const [equipment, setEquipment] = useState([]);
 

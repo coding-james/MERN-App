@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-mongoose.connect("mongodb://localhost:27017/caves_db", {
+mongoose.connect("mongodb://127.0.0.1:27017/caves_db", {
     useNewUrlParser: true
 }).then(() => console.log("Connected to Caves MongoDB")).catch(err => console.error(err));
 

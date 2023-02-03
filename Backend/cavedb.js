@@ -17,6 +17,12 @@ const caveSchema = new Schema({
     gridRef: {
         type: String,
     },
+    length: {
+        type: Number,
+    },
+    depth: {
+        type: Number,
+    },
     water: {
         type: String,
     },

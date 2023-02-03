@@ -1,11 +1,14 @@
 import React, {  useState, useEffect} from "react";
 import axios from "axios";
+import InputForm from "./InputForm";
 
 const UpdateCave = (props) => {
     const [formValues, setFromValues] = useState({
         cave:"",
         region:"",
         gridRef:"",
+        length:"",
+        depth:"",
         water:"",
         equipment:[""],
     });
@@ -24,15 +27,15 @@ const UpdateCave = (props) => {
     useEffect(() => {
         axios.get("http://localhost:4000/updateCave" + props.match.params.id)
         .then((res) => {
-            const {cave, region, gridRef, water, equipment} = res.data;
-            setFromValues({cave, region, gridRef, water, equipment});
+            const {cave, region, gridRef, length, depth, water, equipment} = res.data;
+            setFromValues({cave, region, gridRef, length, depth, water, equipment});
         })
         .catch((err) => console.log(err));
     }, []);
 
     return (
         <InputForm initialValues={formValues} onSubmit={onSubmit} enableReinitialize>
-            Update Cave
+        Update Cave
         </InputForm>
     );
 };

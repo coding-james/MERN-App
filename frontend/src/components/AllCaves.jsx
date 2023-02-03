@@ -25,6 +25,8 @@ const AllCaves = () => {
             cave={caves.cave}
             region={caves.region}
             gridRef={caves.gridRef}
+            length={caves.length}
+            depth={caves.depth}
             water={caves.water}
             equipment={caves.equipment}
             id={caves._id}
@@ -40,6 +42,8 @@ const AllCaves = () => {
                         <th>Cave</th>
                         <th>Region</th>
                         <th>Grid Reference</th>
+                        <th>Length</th>
+                        <th>Depth</th>
                         <th>Water?</th>
                         <th>Equipment</th>
                         <th>Action</th>

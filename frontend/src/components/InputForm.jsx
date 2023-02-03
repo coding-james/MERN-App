@@ -26,6 +26,16 @@ const InputForm = () => {
                     <Form.Control type="text" placeholder="SN 123 456" />
                 </Form.Group>
 
+                <Form.Group className="mb-3" controlId="length">
+                    <Form.Label>Length</Form.Label>
+                    <Form.Control type="number" placeholder="1" min="0" max="10000"/>
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="depth">
+                    <Form.Label>Depth</Form.Label>
+                    <Form.Control type="number" placeholder="1" min="0" max="10000"/>
+                </Form.Group>
+
                 <Form.Group className="mb-3" controlId="wetCave">
                     <Form.Label>Wet Cave?</Form.Label>
                     <br></br>

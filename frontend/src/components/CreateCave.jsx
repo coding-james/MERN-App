@@ -14,6 +14,8 @@ const CreateCave = ({ getCaves }) => {
     const [cave, setCave] = useState("");
     const [region, setRegion] = useState("Mendips");
     const [gridRef, setGridRef] = useState("");
+    const [length, setLength] = useState("");
+    const [depth, setDepth] = useState("");
     const [water, setWater] = useState("Wet");
     const [equipmentList, setEquipmentList] = [{ id: 1, item: 'Ladder', checked: false }, { id: 2, item: 'Rope 20m', checked: false }, { id: 3, item: 'Rope 30m', checked: false }]
     const [equipment, setEquipment] = useState([]);
@@ -29,7 +31,7 @@ const CreateCave = ({ getCaves }) => {
     // }
 
     const CaveDetails = async (e) => {
-        console.log(cave, region, gridRef, water, equipment);
+        console.log(cave, region, gridRef, length, depth, water, equipment);
         e.preventDefault();
         axios.post("http://localhost:4000/createCave", {
             cave,
@@ -95,6 +97,16 @@ const CreateCave = ({ getCaves }) => {
                 <Form.Group className="mb-3">
                     <Form.Label> Grid Reference: </Form.Label>
                     <input type="text" className="form-control" id="gridRef" onChange={(e) => setGridRef(e.target.value)} />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label> Length: </Form.Label>
+                    <input type="number" className="form-control" id="length" min="0" max="10000" onChange={(e) => setLength(e.target.value)} />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label> Depth: </Form.Label>
+                    <input type="number" className="form-control" id="depth" min="0" max="10000" onChange={(e) => setDepth(e.target.value)} />
                 </Form.Group>
 
                 <Form.Group className="mb-3">

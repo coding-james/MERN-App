@@ -11,6 +11,8 @@ function EditCave() {
     const [cave, setCave] = useState("");
     const [region, setRegion] = useState("");
     const [gridRef, setGridRef] = useState("");
+    const [length, setLength] = useState("");
+    const [depth, setDepth] = useState("");
     const [water, setWater] = useState("");
     const [equipmentList, setEquipmentList] = [{ id: 1, item: 'Ladder', checked: false }, { id: 2, item: 'Rope 20m', checked: false }, { id: 3, item: 'Rope 30m', checked: false }]
     const [equipment, setEquipment] = useState([]);
@@ -21,6 +23,8 @@ function EditCave() {
         cave: "",
         region: "",
         gridRef: "",
+        length: "",
+        depth: "",
         water: "",
         equipment: [""],
     });
@@ -29,6 +33,8 @@ function EditCave() {
         setCave(caveData.cave);
         setRegion(caveData.region);
         setGridRef(caveData.gridRef);
+        setLength(caveData.length);
+        setDepth(caveData.depth);
         setWater(caveData.water);
         setEquipment(caveData.equipment);
       }, [caveData]);
@@ -46,20 +52,22 @@ function EditCave() {
 
     //change to update
     const EditCaveDetails = async (e) => {
-        console.log(id, cave, region, gridRef, water, equipment);
+        console.log(id, cave, region, gridRef, length, depth, water, equipment);
         e.preventDefault();
         
         axios.patch(`http://localhost:4000/updateCave/${params.id}`, {
             cave,
             region,
             gridRef,
+            length,
+            depth,
             water,
             equipment
         })
             .then((res) => {
                 if (res.status === 202) {
                     alert("Cave Updated");
-                    // console.log(id, cave, region, gridRef, water, equipment);
+                    // console.log(id, cave, region, gridRef, length, depth, water, equipment);
                     window.location.replace("/allCaves");
                 } else Promise.reject();
             })
@@ -100,6 +108,16 @@ function EditCave() {
                 <Form.Group className="mb-3">
                     <Form.Label> Grid Reference: </Form.Label>
                     <input type="text" className="form-control" id="gridRef" defaultValue={caveData.gridRef} onChange={(e) => setGridRef(e.target.value)} />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label> Length: </Form.Label>
+                    <input type="number" className="form-control" id="length" min="0" max="10000" defaultValue={caveData.length} onChange={(e) => setLength(e.target.value)} />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label> Depth: </Form.Label>
+                    <input type="number" className="form-control" id="depth" min="0" max="10000" defaultValue={caveData.depth} onChange={(e) => setDepth(e.target.value)} />
                 </Form.Group>
 
                 {/* JAMES - Would be good to sort fix Radio Button react.tips/radio-buttons-in-react=16 */}

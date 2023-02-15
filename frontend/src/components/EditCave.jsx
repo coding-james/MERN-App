@@ -120,11 +120,8 @@ function EditCave() {
                     <input type="number" className="form-control" id="depth" min="0" max="10000" defaultValue={caveData.depth} onChange={(e) => setDepth(e.target.value)} />
                 </Form.Group>
 
-                {/* JAMES - Would be good to sort fix Radio Button react.tips/radio-buttons-in-react=16 */}
                 <Form.Group className="mb-3">
                     <Form.Label> Water? </Form.Label><br />
-                    {/* <Form.Check inline name="water" type="radio" id="wet" label="Wet Cave" value="wet" defaultValue={caveData.water} onChange={(e) => setWater(e.target.value)} />
-                    <Form.Check inline name="water" type="radio" id="dry" label="Dry Cave" value="dry" defaultValue={caveData.water} onChange={(e) => setWater(e.target.value)} /> */}
                     <Form.Select value={water} defaultValue={caveData.water} onChange={(e) => setWater(e.target.value)}>
                         <option value="Wet">Wet Cave</option>
                         <option value="Dry">Dry Cave</option>

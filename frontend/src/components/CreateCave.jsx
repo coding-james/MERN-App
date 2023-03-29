@@ -37,6 +37,8 @@ const CreateCave = ({ getCaves }) => {
             cave,
             region,
             gridRef,
+            length,
+            depth,
             water,
             equipment
         })
@@ -47,22 +49,7 @@ const CreateCave = ({ getCaves }) => {
                 } else Promise.reject();
             })
             .catch((err) => alert("Unable to create"));
-
-        // try {
-        //     const res = await axios.post("http://localhost:4000/createCave", {
-        //         cave,
-        //         region,
-        //         gridRef,
-        //         water,
-        //         equipment
-        //     });
-        //     getCaves();
-        //     console.log("Response:", res);
-        // } catch (err) {
-
-        // }
     };
-
 
     // const equipCheck = (value) => {
     //     //if value already included the splice out, otherwise add in.
@@ -110,18 +97,22 @@ const CreateCave = ({ getCaves }) => {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Form.Label> Water? </Form.Label><br />
-                    {/* JAMES - Would be good to sort fix Radio Button react.tips/radio-buttons-in-react=16 */}
-                    {/* <Form.Check inline name="water" type="radio" id="wet" label="Wet Cave" value="wet" onChange={(e) => setWater(e.target.value)} />
-                    <Form.Check inline name="water" type="radio" id="dry" label="Dry Cave" value="dry" onChange={(e) => setWater(e.target.value)} /> */}
-                    
+                    <Form.Label> Water? </Form.Label><br />                  
                     <Form.Select value={water} onChange={(e) => setWater(e.target.value)}>
                         <option value="Wet">Wet Cave</option>
                         <option value="Dry">Dry Cave</option>
                     </Form.Select>
                 </Form.Group>
 
+                {/* <Form.Group className="mb-3">
+                    <Form.Label> Equipment: </Form.Label>
+                    <Form.Check name="equipment" onChange={(e) => setEquipment(e.target.checked)} type="checkbox" id="equipment" label="Ladder" value="Ladder"/>
+                    <Form.Check name="equipment" onChange={(e) => setEquipment(e.target.checked)} type="checkbox" id="equipment" label="Rope 20m" value="Rope 20m"/> 
+                    <Form.Check name="equipment" onChange={(e) => setEquipment(e.target.checked)} type="checkbox" id="equipment" label="Rope 30m" value="Rope 30m"/>      
+                </Form.Group> */}
+
                 {/* JAMES - Would be good to sort fix CheckBoxes/Array react.tips/checkboxes-in-react=16 */}
+                {/* https://www.youtube.com/watch?v=81gvCHNSnH8 */}
                 {/* <Form.Group className="mb-3">
                     <Form.Label> Equipment: </Form.Label>
                     <Form.Check name="equip1" type="checkbox" id="equip1" label="Ladder" value="Ladder" onChange={(e) => equipCheck(e.target.value)} />

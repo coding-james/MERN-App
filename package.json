@@ -1,0 +1,24 @@
+{
+  "name": "mern-app",
+  "version": "1.0.0",
+  "description": "<a name=\"readme-top\"></a>\r <!-- PROJECT SHIELDS -->\r <!--\r *** I'm using markdown \"reference style\" links for readability.\r *** Reference links are enclosed in brackets [ ] instead of parentheses ( ).\r *** See the bottom of this document for the declaration of the reference variables\r *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.\r *** https://www.markdownguide.org/basic-syntax/#reference-style-links\r -->\r [![Issues][issues-shield]][issues-url]\r [![MIT License][license-shield]][license-url]\r [![LinkedIn][linkedin-shield]][linkedin-url]",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd Backend && npm run dev\" \"cd frontend && npm start\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coding-james/MERN-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coding-james/MERN-App/issues"
+  },
+  "homepage": "https://github.com/coding-james/MERN-App#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
